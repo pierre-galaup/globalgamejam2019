@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using Managers;
+using Player;
 using UnityEngine;
 
 namespace Enemy
@@ -6,8 +7,9 @@ namespace Enemy
     public class EnemyAttack : MonoBehaviour
     {
         public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
-        public int attackDamage = 10;               // The amount of health taken away per attack.
+        public int baseAttackDamage = 10;               // The amount of health taken away per attack.
 
+        private int attackDamage;
         private Animator anim;                              // Reference to the animator component.
         private GameObject player;                          // Reference to the player GameObject.
         private PlayerHealth playerHealth;                  // Reference to the player's health.
@@ -22,6 +24,7 @@ namespace Enemy
             playerHealth = player.GetComponent<PlayerHealth>();
             enemyHealth = GetComponent<EnemyHealth>();
             anim = GetComponent<Animator>();
+            attackDamage = (int) (baseAttackDamage * GameManager.Instance.EnemyDamagesMultiplier);
         }
 
         private void OnTriggerEnter(Collider other)

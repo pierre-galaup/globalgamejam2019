@@ -8,6 +8,11 @@ namespace Managers
 
         public PlayerManager PlayerManager { get; private set; }
 
+        public int daysPassed = 0;
+
+        public float EnemyHealthMultiplier => 1f + daysPassed * 1.1f;
+        public float EnemyDamagesMultiplier => 1f + daysPassed * 1.1f;
+
         private void Awake()
         {
             Instance = this;
