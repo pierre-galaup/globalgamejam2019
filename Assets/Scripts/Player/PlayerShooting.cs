@@ -1,13 +1,15 @@
 ﻿using Enemy;
+using Managers;
 using UnityEngine;
 
 namespace Player
 {
     public class PlayerShooting : MonoBehaviour
     {
-        public int damagePerShot = 20;                  // The damage inflicted by each bullet.
-        public float timeBetweenBullets = 0.15f;        // The time between each shot.
         public float range = 100f;                      // The distance the gun can fire.
+
+        private int damagePerShot;                  // The damage inflicted by each bullet.
+        private float timeBetweenBullets;        // The time between each shot.
 
         private float timer;                                    // A timer to determine when to fire.
         private Ray shootRay = new Ray();                       // A ray from the gun end forwards.
@@ -19,9 +21,11 @@ namespace Player
         private Light gunLight;                                 // Reference to the light component.
         public Light faceLight;                             // Duh
         private readonly float effectsDisplayTime = 0.2f;                // The proportion of the timeBetweenBullets that the effects will display for.
+        private PlayerManager _playerManager;
 
         private void Awake()
         {
+            _playerManager = GameManager.Instance.PlayerManager;
             // Create a layer mask for the Shootable layer.
             shootableMask = LayerMask.GetMask("Shootable");
 
@@ -31,6 +35,8 @@ namespace Player
             gunAudio = GetComponent<AudioSource>();
             gunLight = GetComponent<Light>();
             //faceLight = GetComponentInChildren<Light> ();
+            damagePerShot = _playerManager.DamagesPerFire;
+            timeBetweenBullets = 1f / _playerManager.FireRate;
         }
 
         private void Update()

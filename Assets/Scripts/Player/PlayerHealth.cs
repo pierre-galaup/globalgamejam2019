@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Managers;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -6,7 +7,6 @@ namespace Player
 {
     public class PlayerHealth : MonoBehaviour
     {
-        public int startingHealth = 100;                            // The amount of health the player starts the game with.
         public int currentHealth;                                   // The current health the player has.
         public Slider healthSlider;                                 // Reference to the UI's health bar.
         public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
@@ -20,9 +20,11 @@ namespace Player
         private PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
         private bool isDead;                                                // Whether the player is dead.
         private bool damaged;                                               // True when the player gets damaged.
+        private PlayerManager _playerManager;
 
         private void Awake()
         {
+            _playerManager = GameManager.Instance.PlayerManager;
             // Setting up the references.
             anim = GetComponent<Animator>();
             playerAudio = GetComponent<AudioSource>();
@@ -30,7 +32,7 @@ namespace Player
             playerShooting = GetComponentInChildren<PlayerShooting>();
 
             // Set the initial health of the player.
-            currentHealth = startingHealth;
+            currentHealth = _playerManager.MaxHealthPoints;
         }
 
         private void Update()
