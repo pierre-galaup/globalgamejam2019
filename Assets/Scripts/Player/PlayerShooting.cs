@@ -10,6 +10,7 @@ namespace Player
 
         private int damagePerShot;                  // The damage inflicted by each bullet.
         private float timeBetweenBullets;        // The time between each shot.
+        private int ammoAvailable;
 
         private float timer;                                    // A timer to determine when to fire.
         private Ray shootRay = new Ray();                       // A ray from the gun end forwards.
@@ -37,6 +38,7 @@ namespace Player
             //faceLight = GetComponentInChildren<Light> ();
             damagePerShot = _playerManager.DamagesPerFire;
             timeBetweenBullets = 1f / _playerManager.FireRate;
+            ammoAvailable = _playerManager.MaxAmmoNumber;
         }
 
         private void Update()
@@ -77,6 +79,9 @@ namespace Player
 
         private void Shoot()
         {
+            if (ammoAvailable <= 0)
+                return;
+
             // Reset the timer.
             timer = 0f;
 
@@ -98,6 +103,8 @@ namespace Player
             // Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
             shootRay.origin = transform.position;
             shootRay.direction = transform.forward;
+
+            ammoAvailable -= 1;
 
             // Perform the raycast against gameobjects on the shootable layer and if it hits something...
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))

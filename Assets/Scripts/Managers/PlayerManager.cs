@@ -6,13 +6,13 @@ namespace Managers
     {
         public int CurrentMoney = 0;
 
-        public int MaxHealthPoints = 20;
+        public int MaxHealthPoints = 200;
 
-        public int MaxAmmoNumber = 40;
+        public int MaxAmmoNumber = 60;
 
-        public int DamagesPerFire = 4;
+        public int DamagesPerFire = 30;
 
-        public float FireRate = 1;
+        public float FireRate = 2;
 
     }
 }

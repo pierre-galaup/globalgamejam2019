@@ -2361,10 +2361,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentMoney: 0
-  MaxHealthPoints: 20
-  MaxAmmoNumber: 40
-  DamagesPerFire: 4
-  FireRate: 1
+  MaxHealthPoints: 200
+  MaxAmmoNumber: 60
+  DamagesPerFire: 30
+  FireRate: 2
 --- !u!1 &1125301618
 GameObject:
   m_ObjectHideFlags: 0
