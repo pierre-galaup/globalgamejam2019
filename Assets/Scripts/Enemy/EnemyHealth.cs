@@ -18,9 +18,14 @@ namespace Enemy
         private CapsuleCollider capsuleCollider;            // Reference to the capsule collider.
         private bool isDead;                                // Whether the enemy is dead.
         private bool isSinking;                             // Whether the enemy has started sinking through the floor.
+        private StatsManager _statsManager;
+        private PlayerManager _playerManager;
 
         private void Awake()
         {
+            _statsManager = GameManager.Instance.StatsManager;
+            _playerManager = GameManager.Instance.PlayerManager;
+
             // Setting up the references.
             anim = GetComponent<Animator>();
             enemyAudio = GetComponent<AudioSource>();
@@ -53,6 +58,8 @@ namespace Enemy
             // Play the hurt sound effect.
             enemyAudio.Play();
 
+            _statsManager.damagesDealt += amount;
+
             // Reduce the current health by the amount of damage sustained.
             currentHealth -= amount;
 
@@ -66,8 +73,10 @@ namespace Enemy
             if (currentHealth <= 0)
             {
                 // ... the enemy is dead.
-                GameManager.Instance.PlayerManager.CurrentMoney += moneyValue;
                 Death();
+                _playerManager.CurrentMoney += moneyValue;
+                ++_statsManager.totalZombiesKilled;
+                _statsManager.moneyEarned += moneyValue;
             }
         }
 
@@ -78,7 +87,6 @@ namespace Enemy
 
             // Turn the collider into a trigger so shots can pass through it.
             capsuleCollider.isTrigger = true;
-
             // Tell the animator that the enemy is dead.
             anim.SetTrigger("Dead");
 

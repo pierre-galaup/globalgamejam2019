@@ -27,10 +27,13 @@ namespace Player
         public Light faceLight;                             // Duh
         private readonly float effectsDisplayTime = 0.2f;                // The proportion of the timeBetweenBullets that the effects will display for.
         private PlayerManager _playerManager;
+        private StatsManager _statsManager;
 
         private void Awake()
         {
             _playerManager = GameManager.Instance.PlayerManager;
+            _statsManager = GameManager.Instance.StatsManager;
+
             // Create a layer mask for the Shootable layer.
             shootableMask = LayerMask.GetMask("Shootable");
 
@@ -117,8 +120,8 @@ namespace Player
             shootRay.origin = transform.position;
             shootRay.direction = transform.forward;
 
-            ammoAvailable -= 1;
-
+            ammoAvailable--;
+            ++_statsManager.totalAmmoFired;
             // Perform the raycast against gameobjects on the shootable layer and if it hits something...
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
             {

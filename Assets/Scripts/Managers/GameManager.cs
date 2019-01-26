@@ -14,6 +14,7 @@ namespace Managers
         public static GameManager Instance { get; private set; }
 
         public PlayerManager PlayerManager { get; private set; }
+        public StatsManager StatsManager { get; private set; }
 
         public int daysPassed = 0;
 
@@ -46,7 +47,13 @@ namespace Managers
                 maxHp = PlayerManager.maxHealthPoints,
                 maxAmmo = PlayerManager.maxAmmoNumber,
                 dmgPerFire = PlayerManager.damagesPerFire,
-                fireRate = PlayerManager.damagesPerFire
+                fireRate = PlayerManager.fireRate,
+                totalZombiesKilled = StatsManager.totalZombiesKilled,
+                damagesDealt = StatsManager.damagesDealt,
+                deaths = StatsManager.deaths,
+                damagesTaken = StatsManager.damagesTaken,
+                totalAmmoFired = StatsManager.totalAmmoFired,
+                moneyEarned = StatsManager.moneyEarned
             };
 
             if (!Directory.Exists(Application.persistentDataPath))
@@ -88,6 +95,13 @@ namespace Managers
             PlayerManager.damagesPerFire = saveObject.dmgPerFire;
             PlayerManager.fireRate = saveObject.fireRate;
 
+            StatsManager.damagesDealt = saveObject.damagesDealt;
+            StatsManager.damagesTaken = saveObject.damagesTaken;
+            StatsManager.deaths = saveObject.deaths;
+            StatsManager.moneyEarned = saveObject.moneyEarned;
+            StatsManager.totalAmmoFired = saveObject.totalAmmoFired;
+            StatsManager.totalZombiesKilled = saveObject.totalZombiesKilled;
+
             LoadScene();
         }
 
@@ -101,6 +115,7 @@ namespace Managers
             Instance = this;
             _savePath = Path.Combine(Application.persistentDataPath, "save.dat");
             PlayerManager = GetComponent<PlayerManager>();
+            StatsManager = GetComponent<StatsManager>();
         }
 
         private void LoadScene()

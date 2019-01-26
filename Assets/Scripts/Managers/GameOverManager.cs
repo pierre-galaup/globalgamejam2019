@@ -31,6 +31,7 @@ namespace Managers
 
         public IEnumerator LoadCamp()
         {
+            GameManager.Instance.SaveGame();
             yield return new WaitForSeconds(4);
             SceneManager.LoadScene("Camp");
         }

@@ -20,10 +20,13 @@ namespace Player
         private bool isDead;                                                // Whether the player is dead.
         private bool damaged;                                               // True when the player gets damaged.
         private PlayerManager _playerManager;
+        private StatsManager _statsManager;
 
         private void Awake()
         {
             _playerManager = GameManager.Instance.PlayerManager;
+            _statsManager = GameManager.Instance.StatsManager;
+
             // Setting up the references.
             anim = GetComponent<Animator>();
             playerAudio = GetComponent<AudioSource>();
@@ -67,12 +70,13 @@ namespace Player
 
             // Play the hurt sound effect.
             playerAudio.Play();
-
+            _statsManager.damagesTaken += amount;
             // If the player has lost all it's health and the death flag hasn't been set yet...
             if (currentHealth <= 0 && !isDead)
             {
                 // ... it should die.
                 Death();
+                ++_statsManager.deaths;
             }
         }
 

@@ -10,6 +10,14 @@ namespace Save
         public int maxHp;
         public int maxAmmo;
         public int dmgPerFire;
-        public int fireRate;
+        public float fireRate;
+
+        // stats
+        public int totalZombiesKilled;
+        public int totalAmmoFired;
+        public int moneyEarned;
+        public int damagesDealt;
+        public int damagesTaken;
+        public int deaths;
     }
 }
