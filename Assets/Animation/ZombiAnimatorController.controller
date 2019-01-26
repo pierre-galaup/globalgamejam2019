@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EnemyAnimatorController
+  m_Name: ZombiAnimatorController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: PlayerDead
@@ -105,7 +105,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: be66986effd141b4992d2d78be127139, type: 3}
+  m_Motion: {fileID: 7400000, guid: 2b6456df1dc241d4da638cfbbd418d97, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -131,7 +131,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400002, guid: be66986effd141b4992d2d78be127139, type: 3}
+  m_Motion: {fileID: 7400000, guid: 96312da42a95ddc449f2d937dac796e0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -157,7 +157,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400004, guid: be66986effd141b4992d2d78be127139, type: 3}
+  m_Motion: {fileID: 7400000, guid: 110d686e8624db94d8f13fd7b174e99e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
