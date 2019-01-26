@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: a7bed68887a07e34394d4191b3081359, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13346997, g: 0.18373775, b: 0.26000538, a: 1}
+  m_IndirectSpecularColor: {r: 0.13346934, g: 0.18373692, b: 0.2600042, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -10456,6 +10456,22 @@ PrefabInstance:
     - target: {fileID: 2045433695, guid: c84288d80e01bfc4ea24e26b5502d004, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045433695, guid: c84288d80e01bfc4ea24e26b5502d004, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045433695, guid: c84288d80e01bfc4ea24e26b5502d004, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045433695, guid: c84288d80e01bfc4ea24e26b5502d004, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045433698, guid: c84288d80e01bfc4ea24e26b5502d004, type: 3}
+      propertyPath: offset
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2045433700, guid: c84288d80e01bfc4ea24e26b5502d004, type: 3}
       propertyPath: damageImage
