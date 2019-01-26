@@ -2595,8 +2595,8 @@ GameObject:
   - component: {fileID: 904587663}
   - component: {fileID: 904587662}
   - component: {fileID: 904587661}
-  - component: {fileID: 904587665}
   - component: {fileID: 904587666}
+  - component: {fileID: 904587665}
   m_Layer: 5
   m_Name: GUI
   m_TagString: Untagged
@@ -2696,11 +2696,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 904587660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98585dc693d4c346a6ae248885e6d39, type: 3}
+  m_Script: {fileID: 11500000, guid: 8495f9d90407e5f418795b793b14226e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   uiMoneyText: {fileID: 1460102231}
-  _gameManager: {fileID: 0}
+  uiDaysPassedText: {fileID: 475554713}
 --- !u!114 &904587666
 MonoBehaviour:
   m_ObjectHideFlags: 0
