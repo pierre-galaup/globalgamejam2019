@@ -31,7 +31,6 @@ namespace Player
             playerMovement = GetComponent<PlayerMovement>();
             playerShooting = GetComponentInChildren<PlayerShooting>();
 
-            // Set the initial health of the player.
             currentHealth = _playerManager.MaxHealthPoints;
             healthSlider.maxValue = _playerManager.MaxHealthPoints;
             healthSlider.value = currentHealth;

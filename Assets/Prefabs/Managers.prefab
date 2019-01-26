@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   daysPassed: 0
-  LoadGameButton: {fileID: 0}
 --- !u!114 &5949369356285753213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,11 +58,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1380bdabc23d0ad4ebe8a88ed54a910d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentMoney: 0
-  MaxHealthPoints: 200
-  MaxAmmoNumber: 60
-  DamagesPerFire: 30
-  FireRate: 2
+  maxHealthPoints: 200
+  maxAmmoNumber: 60
+  damagesPerFire: 30
+  fireRate: 2
 --- !u!114 &5949369356285753214
 MonoBehaviour:
   m_ObjectHideFlags: 0

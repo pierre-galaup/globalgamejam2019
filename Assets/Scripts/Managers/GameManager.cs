@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 using Save;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Managers
 {
@@ -21,8 +20,6 @@ namespace Managers
         public float EnemyHealthMultiplier => 1f + daysPassed * 1.1f;
         public float EnemyDamagesMultiplier => 1f + daysPassed * 1.1f;
 
-        public Button LoadGameButton;
-
         private string _savePath;
 
         public void NewGame()
@@ -30,14 +27,13 @@ namespace Managers
             Debug.Log("New game requested");
 
             daysPassed = 0;
-            PlayerManager.CurrentMoney = 0;
-            PlayerManager.MaxHealthPoints = 200;
-            PlayerManager.MaxAmmoNumber = 60;
-            PlayerManager.DamagesPerFire = 30;
-            PlayerManager.FireRate = 2;
+            PlayerManager.CurrentMoney = 500;
+            PlayerManager.maxHealthPoints = 200;
+            PlayerManager.maxAmmoNumber = 60;
+            PlayerManager.damagesPerFire = 30;
+            PlayerManager.fireRate = 2;
 
             SaveGame();
-            RefreshButtons();
             LoadScene();
         }
 
@@ -47,10 +43,10 @@ namespace Managers
             {
                 daysPassed = daysPassed,
                 currentMoney = PlayerManager.CurrentMoney,
-                maxHp = PlayerManager.MaxHealthPoints,
-                maxAmmo = PlayerManager.MaxAmmoNumber,
-                dmgPerFire = PlayerManager.DamagesPerFire,
-                fireRate = PlayerManager.DamagesPerFire
+                maxHp = PlayerManager.maxHealthPoints,
+                maxAmmo = PlayerManager.maxAmmoNumber,
+                dmgPerFire = PlayerManager.damagesPerFire,
+                fireRate = PlayerManager.damagesPerFire
             };
 
             if (!Directory.Exists(Application.persistentDataPath))
@@ -64,7 +60,6 @@ namespace Managers
                 Debug.Log($"Data saved:{Environment.NewLine}{JsonConvert.SerializeObject(saveObject, Formatting.Indented)}");
             }
             
-            RefreshButtons();
         }
 
         public void LoadGame()
@@ -88,15 +83,15 @@ namespace Managers
 
             daysPassed = saveObject.daysPassed;
             PlayerManager.CurrentMoney = saveObject.currentMoney;
-            PlayerManager.MaxHealthPoints = saveObject.maxHp;
-            PlayerManager.MaxAmmoNumber = saveObject.maxAmmo;
-            PlayerManager.DamagesPerFire = saveObject.dmgPerFire;
-            PlayerManager.FireRate = saveObject.fireRate;
+            PlayerManager.maxHealthPoints = saveObject.maxHp;
+            PlayerManager.maxAmmoNumber = saveObject.maxAmmo;
+            PlayerManager.damagesPerFire = saveObject.dmgPerFire;
+            PlayerManager.fireRate = saveObject.fireRate;
 
             LoadScene();
         }
 
-        private bool CanLoadGame()
+        public bool CanLoadGame()
         {
             return File.Exists(_savePath);
         }
@@ -106,13 +101,6 @@ namespace Managers
             Instance = this;
             _savePath = Path.Combine(Application.persistentDataPath, "save.dat");
             PlayerManager = GetComponent<PlayerManager>();
-            RefreshButtons();
-        }
-
-        private void RefreshButtons()
-        {
-            if (LoadGameButton != null)
-                LoadGameButton.interactable = CanLoadGame();
         }
 
         private void LoadScene()

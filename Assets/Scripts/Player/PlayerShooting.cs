@@ -40,9 +40,9 @@ namespace Player
             gunAudio = GetComponent<AudioSource>();
             gunLight = GetComponent<Light>();
             //faceLight = GetComponentInChildren<Light> ();
-            damagePerShot = _playerManager.DamagesPerFire;
-            timeBetweenBullets = 1f / _playerManager.FireRate;
-            ammoAvailable = _playerManager.MaxAmmoNumber;
+            damagePerShot = _playerManager.damagesPerFire;
+            timeBetweenBullets = 1f / _playerManager.fireRate;
+            ammoAvailable = _playerManager.maxAmmoNumber;
         }
 
         private void Start()
