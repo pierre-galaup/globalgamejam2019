@@ -1,5 +1,5 @@
-﻿using MobileInput.Scripts;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace Player
 {
