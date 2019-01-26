@@ -16,7 +16,6 @@ namespace Managers
                     return;
                 currentMoney = value;
                 MoneyChanged?.Invoke(this, EventArgs.Empty);
-                Debug.Log($"New money value: {currentMoney}");
             }
         }
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class MoneyUIRefresher : MonoBehaviour
 {
     public TextMeshProUGUI uiMoneyText;
+    public TextMeshProUGUI uiDaysPassedText;
 
     private GameManager _gameManager;
 
@@ -13,6 +14,7 @@ public class MoneyUIRefresher : MonoBehaviour
     {
         _gameManager = GameManager.Instance;
         _gameManager.PlayerManager.MoneyChanged += PlayerManagerOnMoneyChanged;
+        uiDaysPassedText.text = _gameManager.daysPassed.ToString();
         UpdateUiText();
     }
 
@@ -28,7 +30,6 @@ public class MoneyUIRefresher : MonoBehaviour
 
     private void UpdateUiText()
     {
-        Debug.Log($"Player money: {_gameManager.PlayerManager.CurrentMoney} $");
         uiMoneyText.text = $"{_gameManager.PlayerManager.CurrentMoney} $";
     }
 }
