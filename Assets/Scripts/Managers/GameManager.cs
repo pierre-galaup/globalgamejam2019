@@ -27,11 +27,11 @@ namespace Managers
             Debug.Log("New game requested");
 
             daysPassed = 0;
-            PlayerManager.CurrentMoney = 0;
-            PlayerManager.MaxHealthPoints = 200;
-            PlayerManager.MaxAmmoNumber = 60;
-            PlayerManager.DamagesPerFire = 30;
-            PlayerManager.FireRate = 2;
+            PlayerManager.CurrentMoney = 500;
+            PlayerManager.maxHealthPoints = 200;
+            PlayerManager.maxAmmoNumber = 60;
+            PlayerManager.damagesPerFire = 30;
+            PlayerManager.fireRate = 2;
 
             SaveGame();
             LoadScene();
@@ -43,10 +43,10 @@ namespace Managers
             {
                 daysPassed = daysPassed,
                 currentMoney = PlayerManager.CurrentMoney,
-                maxHp = PlayerManager.MaxHealthPoints,
-                maxAmmo = PlayerManager.MaxAmmoNumber,
-                dmgPerFire = PlayerManager.DamagesPerFire,
-                fireRate = PlayerManager.DamagesPerFire
+                maxHp = PlayerManager.maxHealthPoints,
+                maxAmmo = PlayerManager.maxAmmoNumber,
+                dmgPerFire = PlayerManager.damagesPerFire,
+                fireRate = PlayerManager.damagesPerFire
             };
 
             if (!Directory.Exists(Application.persistentDataPath))
@@ -83,10 +83,10 @@ namespace Managers
 
             daysPassed = saveObject.daysPassed;
             PlayerManager.CurrentMoney = saveObject.currentMoney;
-            PlayerManager.MaxHealthPoints = saveObject.maxHp;
-            PlayerManager.MaxAmmoNumber = saveObject.maxAmmo;
-            PlayerManager.DamagesPerFire = saveObject.dmgPerFire;
-            PlayerManager.FireRate = saveObject.fireRate;
+            PlayerManager.maxHealthPoints = saveObject.maxHp;
+            PlayerManager.maxAmmoNumber = saveObject.maxAmmo;
+            PlayerManager.damagesPerFire = saveObject.dmgPerFire;
+            PlayerManager.fireRate = saveObject.fireRate;
 
             LoadScene();
         }

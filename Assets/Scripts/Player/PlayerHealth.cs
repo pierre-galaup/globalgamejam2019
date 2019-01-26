@@ -32,7 +32,7 @@ namespace Player
             playerShooting = GetComponentInChildren<PlayerShooting>();
 
             // Set the initial health of the player.
-            currentHealth = _playerManager.MaxHealthPoints;
+            currentHealth = _playerManager.maxHealthPoints;
         }
 
         private void Update()

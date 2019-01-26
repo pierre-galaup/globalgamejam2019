@@ -1,18 +1,34 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Managers
 {
     public class PlayerManager : MonoBehaviour
     {
-        public int CurrentMoney = 0;
+        public event EventHandler MoneyChanged;
 
-        public int MaxHealthPoints = 200;
+        public int CurrentMoney
+        {
+            get => currentMoney;
+            set
+            {
+                if (value == currentMoney)
+                    return;
+                currentMoney = value;
+                MoneyChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
 
-        public int MaxAmmoNumber = 60;
+        public int maxHealthPoints = 200;
 
-        public int DamagesPerFire = 30;
+        public int maxAmmoNumber = 60;
 
-        public float FireRate = 2;
+        public int damagesPerFire = 30;
 
+        public float fireRate = 2;
+
+        [SerializeField]
+        private int currentMoney = 500;
     }
 }
