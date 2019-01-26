@@ -1,12 +1,16 @@
 ﻿using Enemy;
 using Managers;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Player
 {
     public class PlayerShooting : MonoBehaviour
     {
         public float range = 100f;                      // The distance the gun can fire.
+
+        [SerializeField]
+        private Text _ammoText;
 
         private int damagePerShot;                  // The damage inflicted by each bullet.
         private float timeBetweenBullets;        // The time between each shot.
@@ -39,6 +43,11 @@ namespace Player
             damagePerShot = _playerManager.DamagesPerFire;
             timeBetweenBullets = 1f / _playerManager.FireRate;
             ammoAvailable = _playerManager.MaxAmmoNumber;
+        }
+
+        private void Start()
+        {
+            _ammoText.text = "Ammo: " + ammoAvailable;
         }
 
         private void Update()
@@ -80,7 +89,9 @@ namespace Player
         private void Shoot()
         {
             if (ammoAvailable <= 0)
+            {
                 return;
+            }
 
             // Reset the timer.
             timer = 0f;
@@ -128,6 +139,8 @@ namespace Player
                 // ... set the second position of the line renderer to the fullest extent of the gun's range.
                 gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
             }
+
+            _ammoText.text = "Ammo: " + ammoAvailable;
         }
     }
 }
