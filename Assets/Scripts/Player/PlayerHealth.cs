@@ -31,8 +31,8 @@ namespace Player
             playerMovement = GetComponent<PlayerMovement>();
             playerShooting = GetComponentInChildren<PlayerShooting>();
 
-            currentHealth = _playerManager.MaxHealthPoints;
-            healthSlider.maxValue = _playerManager.MaxHealthPoints;
+            currentHealth = _playerManager.maxHealthPoints;
+            healthSlider.maxValue = _playerManager.maxHealthPoints;
             healthSlider.value = currentHealth;
         }
 
