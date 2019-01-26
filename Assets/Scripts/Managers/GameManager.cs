@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 using Save;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Managers
 {
@@ -20,8 +19,6 @@ namespace Managers
 
         public float EnemyHealthMultiplier => 1f + daysPassed * 1.1f;
         public float EnemyDamagesMultiplier => 1f + daysPassed * 1.1f;
-
-        public Button LoadGameButton;
 
         private string _savePath;
 
@@ -37,7 +34,6 @@ namespace Managers
             PlayerManager.FireRate = 2;
 
             SaveGame();
-            RefreshButtons();
             LoadScene();
         }
 
@@ -64,7 +60,6 @@ namespace Managers
                 Debug.Log($"Data saved:{Environment.NewLine}{JsonConvert.SerializeObject(saveObject, Formatting.Indented)}");
             }
             
-            RefreshButtons();
         }
 
         public void LoadGame()
@@ -96,7 +91,7 @@ namespace Managers
             LoadScene();
         }
 
-        private bool CanLoadGame()
+        public bool CanLoadGame()
         {
             return File.Exists(_savePath);
         }
@@ -106,13 +101,6 @@ namespace Managers
             Instance = this;
             _savePath = Path.Combine(Application.persistentDataPath, "save.dat");
             PlayerManager = GetComponent<PlayerManager>();
-            RefreshButtons();
-        }
-
-        private void RefreshButtons()
-        {
-            if (LoadGameButton != null)
-                LoadGameButton.interactable = CanLoadGame();
         }
 
         private void LoadScene()
