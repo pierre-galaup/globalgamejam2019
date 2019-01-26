@@ -14,7 +14,7 @@ namespace Story
 
         private readonly List<string> _storyline = new List<string>
         {
-            "You survive since several months alone.\nHuman warmth begins to severely miss you...\nYou build a new home, in a safe place and you have to go out to find some equipment.\nAnd, why not, find some people to build a better home, a new family...",
+            "You survive since several months alone.\nHuman warmth begins to severely miss you...\nYou built a new home, in a safe place. Now, you have to go out to find some equipment and resources.\nAnd, why not, find some people to build a better home, a new family...",
             "",
             ""
         };
