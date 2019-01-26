@@ -43,6 +43,8 @@ namespace Player
             damagePerShot = _playerManager.damagesPerFire;
             timeBetweenBullets = 1f / _playerManager.fireRate;
             ammoAvailable = _playerManager.maxAmmoNumber;
+
+            _ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
         }
 
         private void Start()

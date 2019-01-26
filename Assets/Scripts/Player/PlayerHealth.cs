@@ -1,6 +1,5 @@
 ﻿using Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Player
@@ -83,7 +82,7 @@ namespace Player
             isDead = true;
 
             // Turn off any remaining shooting effects.
-            playerShooting.DisableEffects();
+            GameObject.Find("GunBarrelEnd").GetComponent<PlayerShooting>().DisableEffects();
 
             // Tell the animator that the player is dead.
             anim.SetTrigger("Die");
@@ -94,13 +93,7 @@ namespace Player
 
             // Turn off the movement and shooting scripts.
             playerMovement.enabled = false;
-            playerShooting.enabled = false;
-        }
-
-        public void RestartLevel()
-        {
-            // Reload the level that is currently loaded.
-            SceneManager.LoadScene(0);
+            GameObject.Find("GunBarrelEnd").GetComponent<PlayerShooting>().enabled = false;
         }
     }
 }

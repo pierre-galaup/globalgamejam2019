@@ -73,12 +73,12 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Damage
     m_StateMachine: {fileID: 110797965}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: 9de6778465604d44a9276afca0090f5c, type: 2}
     m_Motions: []
     m_Behaviours: []
-    m_BlendingMode: 1
+    m_BlendingMode: 0
     m_SyncedLayerIndex: -1
-    m_DefaultWeight: 1
+    m_DefaultWeight: 0
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}

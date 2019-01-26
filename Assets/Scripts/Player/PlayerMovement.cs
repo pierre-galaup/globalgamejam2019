@@ -55,6 +55,8 @@ namespace Player
             playerRigidbody.MovePosition(transform.position + movement);
         }
 
+        public float offset = 4f;
+
         private void Turning()
         {
 #if !MOBILE_INPUT
@@ -67,7 +69,7 @@ namespace Player
             if (Physics.Raycast(camRay, out RaycastHit floorHit, camRayLength, floorMask))
             {
                 // Create a vector from the player to the point on the floor the raycast from the mouse hit.
-                Vector3 playerToMouse = floorHit.point - transform.position;
+                Vector3 playerToMouse = floorHit.point - (transform.position + new Vector3(0, 0, offset));
 
                 // Ensure the vector is entirely along the floor plane.
                 playerToMouse.y = 0f;

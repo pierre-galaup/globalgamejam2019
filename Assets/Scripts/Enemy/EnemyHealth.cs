@@ -28,7 +28,7 @@ namespace Enemy
             capsuleCollider = GetComponent<CapsuleCollider>();
 
             // Setting the current health when the enemy first spawns.
-            currentHealth = (int) (startingHealth * GameManager.Instance.EnemyHealthMultiplier);
+            currentHealth = (int)(startingHealth * GameManager.Instance.EnemyHealthMultiplier);
         }
 
         private void Update()

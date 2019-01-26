@@ -1,5 +1,7 @@
 ﻿using Player;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Managers
 {
@@ -22,7 +24,15 @@ namespace Managers
             {
                 // ... tell the animator the game is over.
                 anim.SetTrigger("GameOver");
+
+                StartCoroutine(LoadCamp());
             }
+        }
+
+        public IEnumerator LoadCamp()
+        {
+            yield return new WaitForSeconds(4);
+            SceneManager.LoadScene("Camp");
         }
     }
 }

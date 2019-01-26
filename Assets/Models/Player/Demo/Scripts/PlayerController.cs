@@ -36,19 +36,19 @@ public class PlayerController : MonoBehaviour
 
                 if (hand.rightGun != null)
                 {
-                    GameObject newRightGun = Instantiate(hand.rightGun);
-                    newRightGun.transform.parent = rightGunBone;
+                    GameObject newRightGun = Instantiate(hand.rightGun, rightGunBone, true);
                     newRightGun.transform.localPosition = Vector3.zero;
-                    newRightGun.transform.localRotation = Quaternion.Euler(90, 0, 0);
+                    newRightGun.transform.localRotation = Quaternion.Euler(65.387f, 89, 90);
+                    newRightGun.transform.localScale = new Vector3(0.3937008f, 0.3937008f, 0.3937008f);
                 }
                 if (hand.leftGun != null)
                 {
-                    GameObject newLeftGun = Instantiate(hand.leftGun);
-                    newLeftGun.transform.parent = leftGunBone;
+                    GameObject newLeftGun = Instantiate(hand.leftGun, leftGunBone, true);
                     newLeftGun.transform.localPosition = Vector3.zero;
-                    newLeftGun.transform.localRotation = Quaternion.Euler(90, 0, 0);
+                    newLeftGun.transform.localRotation = Quaternion.Euler(65.387f, 89, 90);
+                    newLeftGun.transform.localScale = new Vector3(0.3937008f, 0.3937008f, 0.3937008f);
                 }
-                animator.runtimeAnimatorController = hand.controller;
+                //animator.runtimeAnimatorController = hand.controller;
                 return;
             }
         }
