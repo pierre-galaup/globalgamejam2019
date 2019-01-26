@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18319218, g: 0.2267955, b: 0.29456192, a: 1}
+  m_IndirectSpecularColor: {r: 0.18319179, g: 0.22679496, b: 0.2945614, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -112,6 +112,90 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &37225249
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2126837544}
+    m_Modifications:
+    - target: {fileID: 6245575112056396474, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_Name
+      value: Sci-Fi_Soldier 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.1593685
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.4016342
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.3851812
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.922841
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -225.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.8000011
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.8000011
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da016cc156b11d544b995d383b5da488, type: 3}
 --- !u!1 &48959607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,6 +2079,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993672563}
   m_CullTransparentMesh: 0
+--- !u!4 &1009118933 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6245575112056358746, guid: da016cc156b11d544b995d383b5da488,
+    type: 3}
+  m_PrefabInstance: {fileID: 37225249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1207497261
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fenceDoorTransform: {fileID: 978452311}
   _carTransform: {fileID: 2126837544}
+  _player: {fileID: 1009118933}
 --- !u!4 &1520380906
 Transform:
   m_ObjectHideFlags: 0
@@ -3689,11 +3780,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CampEnvironment
-      objectReference: {fileID: 0}
-    - target: {fileID: 504194088324437649, guid: 2d080875c4bd56c4796dbe32c53be402,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 7107541982553069172, guid: 2d080875c4bd56c4796dbe32c53be402,
         type: 3}
