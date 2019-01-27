@@ -1,8 +1,8 @@
 ﻿using Camp;
 using Managers;
+using Story;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GuiButtonHandler : MonoBehaviour
@@ -19,8 +19,14 @@ public class GuiButtonHandler : MonoBehaviour
     [SerializeField]
     private Button shopButton;
 
+    [SerializeField]
+    private Button _closeStoryButton;
+
+    [SerializeField]
+    private DeployStoryText _deployStoryText;
+
     private GameManager _gameManager;
-    
+
     private void Awake()
     {
         _gameManager = GameManager.Instance;
@@ -30,7 +36,10 @@ public class GuiButtonHandler : MonoBehaviour
     public void ShowShop()
     {
         if (shopCanvas.activeSelf)
+        {
             return;
+        }
+
         exploreButton.interactable = false;
         shopButton.interactable = false;
         shopCanvas.SetActive(true);
@@ -40,13 +49,26 @@ public class GuiButtonHandler : MonoBehaviour
     {
         shopButton.interactable = false;
         exploreButton.interactable = false;
-        moveCarCamp.MoveCar(LoadExplorationScene);
+
+        if (_gameManager.daysPassed == 0)
+        {
+            _deployStoryText.DisplayText(1);
+            _closeStoryButton.onClick.RemoveAllListeners();
+            _closeStoryButton.onClick.AddListener(() => moveCarCamp.MoveCar(LoadExplorationScene));
+        }
+        else
+        {
+            moveCarCamp.MoveCar(LoadExplorationScene);
+        }
     }
 
     public void HideShop()
     {
         if (!shopCanvas.activeSelf)
+        {
             return;
+        }
+
         shopCanvas.SetActive(false);
         exploreButton.interactable = true;
         shopButton.interactable = transform;
@@ -55,5 +77,11 @@ public class GuiButtonHandler : MonoBehaviour
     private void LoadExplorationScene()
     {
         SceneManager.LoadScene("PlayArea");
+    }
+
+    private void Reset()
+    {
+        _closeStoryButton = null;
+        _deployStoryText = null;
     }
 }
