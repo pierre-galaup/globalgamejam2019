@@ -55,11 +55,11 @@ public class LeaveGame : MonoBehaviour
         bonusPanel.SetActive(true);
 
         int zombiesKilled = _gameManager.StatsManager.totalZombiesKilled - _previousZombiesKilled;
-        var bonusValue = Constants.BonusValueCalculator(_gameManager.daysPassed, zombiesKilled);
+        int bonusValue = Constants.BonusValueCalculator(_gameManager.daysPassed, zombiesKilled);
 
         _gameManager.PlayerManager.CurrentMoney += bonusValue;
 
-        _bonusText.text = $"You earned a bonus of {bonusValue} $";
+        _bonusText.text = $"You earned a bonus of {bonusValue} resources";
         playerHealth.currentHealth = 0;
     }
 

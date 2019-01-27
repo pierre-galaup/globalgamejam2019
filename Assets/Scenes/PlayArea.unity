@@ -3700,16 +3700,16 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 4ed93b37fc12724459d71030f5c30f72, type: 3}
     m_FontSize: 48
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 4
-    m_MaxSize: 50
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You earn a bonus of 0$
+  m_Text: You earn a bonus of 200 resources
 --- !u!222 &1115309500
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4703,7 +4703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 91.4, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1652832596
@@ -4726,7 +4726,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bb48889f248d43647b3eaba59ebbdd3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a642370673daffc499aa0ab5e6ce2748, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

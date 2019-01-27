@@ -62,7 +62,7 @@ namespace Managers
 
         public void UpgradePlayerHp()
         {
-            var upgradeCost = Constants.UpgradeHpCostCalculator(_playerManager.maxHealthPoints);
+            int upgradeCost = Constants.UpgradeHpCostCalculator(_playerManager.maxHealthPoints);
             if (upgradeCost > _playerManager.CurrentMoney)
             {
                 return;
@@ -75,7 +75,7 @@ namespace Managers
 
         public void UpgradePlayerAmmo()
         {
-            var upgradeCost = Constants.UpgradeAmmoCostCalculator(_playerManager.maxAmmoNumber);
+            int upgradeCost = Constants.UpgradeAmmoCostCalculator(_playerManager.maxAmmoNumber);
             if (upgradeCost > _playerManager.CurrentMoney)
             {
                 return;
@@ -90,7 +90,7 @@ namespace Managers
 
         public void UpgradePlayerDamages()
         {
-            var upgradeCost = Constants.UpgradeDamageCostCalculator(_playerManager.damagesPerFire);
+            int upgradeCost = Constants.UpgradeDamageCostCalculator(_playerManager.damagesPerFire);
             if (upgradeCost > _playerManager.CurrentMoney)
             {
                 return;
@@ -103,7 +103,7 @@ namespace Managers
 
         public void UpgradePlayerFireRate()
         {
-            var upgradeCost = Constants.UpgradeFireRateCostCalculator(_playerManager.fireRate);
+            int upgradeCost = Constants.UpgradeFireRateCostCalculator(_playerManager.fireRate);
             if (upgradeCost > _playerManager.CurrentMoney)
             {
                 return;
@@ -121,10 +121,10 @@ namespace Managers
             int nextDamagePrice = Constants.UpgradeDamageCostCalculator(_playerManager.damagesPerFire);
             int nextFireRatePrice = Constants.UpgradeFireRateCostCalculator(_playerManager.fireRate);
 
-            updatePlayerHPPriceText.text = nextHealthPrice + " $";
-            updatePlayerAmmoPriceText.text = nextAmmoPrice + " $";
-            updatePlayerDamagesPriceText.text = nextDamagePrice + " $";
-            updatePlayerFireRatePriceText.text = nextFireRatePrice + " $";
+            updatePlayerHPPriceText.text = nextHealthPrice.ToString();
+            updatePlayerAmmoPriceText.text = nextAmmoPrice.ToString();
+            updatePlayerDamagesPriceText.text = nextDamagePrice.ToString();
+            updatePlayerFireRatePriceText.text = nextFireRatePrice.ToString();
 
             updatePlayerHPBeforeValueText.text = _playerManager.maxHealthPoints.ToString();
             updatePlayerHPAfterValueText.text = Constants.UpgradeHpCalculator(_playerManager.maxHealthPoints).ToString(CultureInfo.InvariantCulture);
@@ -133,7 +133,7 @@ namespace Managers
             updatePlayerDamagesBeforeValueText.text = _playerManager.damagesPerFire.ToString();
             updatePlayerDamagesAfterValueText.text = Constants.UpgradeDamageCalculator(_playerManager.damagesPerFire).ToString(CultureInfo.InvariantCulture);
             updatePlayerFireRateBeforeValueText.text = _playerManager.fireRate.ToString("0.00", CultureInfo.InvariantCulture);
-            updatePlayerFireRateAfterValueText.text = Constants.UpgradeFireRate(_playerManager.fireRate).ToString("0.00",CultureInfo.InvariantCulture);
+            updatePlayerFireRateAfterValueText.text = Constants.UpgradeFireRate(_playerManager.fireRate).ToString("0.00", CultureInfo.InvariantCulture);
 
             if (nextHealthPrice > _playerManager.CurrentMoney)
             {

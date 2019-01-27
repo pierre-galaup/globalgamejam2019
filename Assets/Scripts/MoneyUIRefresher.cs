@@ -1,5 +1,5 @@
-﻿using System;
-using Managers;
+﻿using Managers;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -30,6 +30,6 @@ public class MoneyUIRefresher : MonoBehaviour
 
     private void UpdateUiText()
     {
-        uiMoneyText.text = $"{_gameManager.PlayerManager.CurrentMoney} $";
+        uiMoneyText.text = $"{_gameManager.PlayerManager.CurrentMoney}";
     }
 }
