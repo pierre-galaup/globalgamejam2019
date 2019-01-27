@@ -139,14 +139,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14871708}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bf862ffeb7e74943a1729f1cff11eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 933454083}
-  enemy: {fileID: 153412, guid: 548c56f4bcf4db24b8aa057e9846a005, type: 3}
-  spawnTime: 15
+  enemy: {fileID: 1387014195, guid: 7024b66119fd87e42a8a8709b750f46b, type: 3}
+  spawnTime: 2
   spawnPoints:
   - {fileID: 933997770}
 --- !u!114 &14871710
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 933454083}
   enemy: {fileID: 1387014195, guid: 7024b66119fd87e42a8a8709b750f46b, type: 3}
-  spawnTime: 3
+  spawnTime: 1
   spawnPoints:
   - {fileID: 1725468539}
   - {fileID: 345275349}
@@ -175,13 +175,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14871708}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bf862ffeb7e74943a1729f1cff11eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 933454083}
-  enemy: {fileID: 100002, guid: e5171f72421770240bd7c3989fe351e3, type: 3}
+  enemy: {fileID: 167166902, guid: 10dbbc00c740c3647959e73940d54053, type: 3}
   spawnTime: 3
   spawnPoints:
   - {fileID: 345275349}
@@ -5411,7 +5411,7 @@ PrefabInstance:
     - target: {fileID: 5949369356285753202, guid: d97a596deee809a498ae3044ded7e554,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5949369356285753212, guid: d97a596deee809a498ae3044ded7e554,
         type: 3}

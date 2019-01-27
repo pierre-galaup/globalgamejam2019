@@ -19,7 +19,7 @@ namespace Managers
             }
         }
 
-        public int maxHealthPoints = 200;
+        public int maxHealthPoints = 100;
 
         public int maxAmmoNumber = 60;
 
@@ -28,6 +28,6 @@ namespace Managers
         public float fireRate = 2;
 
         [SerializeField]
-        private int currentMoney = 500;
+        private int currentMoney = 250;
     }
 }

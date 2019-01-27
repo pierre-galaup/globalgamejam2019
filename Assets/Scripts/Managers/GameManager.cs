@@ -18,8 +18,8 @@ namespace Managers
 
         public int daysPassed = 0;
 
-        public float EnemyHealthMultiplier => 1f + daysPassed * 1.1f;
-        public float EnemyDamagesMultiplier => 1f + daysPassed * 1.1f;
+        public float EnemyHealthMultiplier => 1f + daysPassed * 0.33f;
+        public float EnemyDamagesMultiplier => 1f + daysPassed * 0.33f;
 
         private string _savePath;
 

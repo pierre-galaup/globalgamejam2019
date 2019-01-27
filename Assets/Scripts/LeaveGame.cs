@@ -23,15 +23,13 @@ public class LeaveGame : MonoBehaviour
 
     private GameManager _gameManager;
     private Text _bonusText;
-    private bool _isPlayerOut;
-    private int _previousZombiesKiled;
+    private int _previousZombiesKilled;
 
     private void Awake()
     {
         _gameManager = GameManager.Instance;
-        _isPlayerOut = false;
         _bonusText = bonusPanel.GetComponentInChildren<Text>();
-        _previousZombiesKiled = _gameManager.StatsManager.totalZombiesKilled;
+        _previousZombiesKilled = _gameManager.StatsManager.totalZombiesKilled;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,18 +37,8 @@ public class LeaveGame : MonoBehaviour
         if (!other.gameObject.CompareTag("Player"))
             return;
 
-        if (!_isPlayerOut)
-            return;
-        _isPlayerOut = false;
         pauseManager.Pause();
         dialogCanvas.enabled = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.gameObject.CompareTag("Player"))
-            return;
-        _isPlayerOut = true;
     }
 
     public void OnDialogYes()
@@ -59,9 +47,8 @@ public class LeaveGame : MonoBehaviour
         dialogCanvas.enabled = false;
         bonusPanel.SetActive(true);
 
-        var zombiesKilled = _gameManager.StatsManager.totalZombiesKilled - _previousZombiesKiled;
-        Debug.Log($"ZombiKilled = {zombiesKilled}");
-        var bonusValue = ((1 + _gameManager.daysPassed) * zombiesKilled) * 2;
+        var zombiesKilled = _gameManager.StatsManager.totalZombiesKilled - _previousZombiesKilled;
+        var bonusValue = ((1 + _gameManager.daysPassed) * zombiesKilled) * 5;
 
         _gameManager.PlayerManager.CurrentMoney += bonusValue;
 

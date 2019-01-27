@@ -11,7 +11,7 @@ namespace Managers
         public double hpUpgradeMultiplier = 1.1;
         public double ammoUpgradeMultiplier = 1.3;
         public double damagesUpgradeMultiplier = 1.4;
-        public double fireRateUpgradeMultiplier = 1.25;
+        public float fireRateUpgradeMultiplier = 1.25f;
 
         public Button updatePlayerHpButton;
         public Button updatePlayerAmmoButton;
@@ -62,12 +62,13 @@ namespace Managers
 
         public void UpgradePlayerHp()
         {
-            if (_playerManager.maxHealthPoints * 10 < _playerManager.CurrentMoney)
+            if (_playerManager.maxHealthPoints * 2 > _playerManager.CurrentMoney)
             {
                 return;
             }
 
-            _playerManager.CurrentMoney -= _playerManager.maxHealthPoints * 10;
+            Debug.Log("Buy HP upgrade");
+            _playerManager.CurrentMoney -= _playerManager.maxHealthPoints * 2;
             _playerManager.maxHealthPoints = (int)(_playerManager.maxHealthPoints * hpUpgradeMultiplier);
 
             RefreshButtons();
@@ -75,12 +76,13 @@ namespace Managers
 
         public void UpgradePlayerAmmo()
         {
-            if (_playerManager.maxAmmoNumber * 40 < _playerManager.CurrentMoney)
+            if (_playerManager.maxAmmoNumber * 4 > _playerManager.CurrentMoney)
             {
                 return;
             }
 
-            _playerManager.CurrentMoney -= _playerManager.maxAmmoNumber * 40;
+            Debug.Log("Buy ammo upgrade");
+            _playerManager.CurrentMoney -= _playerManager.maxAmmoNumber * 4;
             _playerManager.maxAmmoNumber = (int)(_playerManager.maxAmmoNumber * ammoUpgradeMultiplier);
 
             RefreshButtons();
@@ -88,12 +90,13 @@ namespace Managers
 
         public void UpgradePlayerDamages()
         {
-            if (_playerManager.damagesPerFire * 60 < _playerManager.CurrentMoney)
+            if (_playerManager.damagesPerFire * 6 > _playerManager.CurrentMoney)
             {
                 return;
             }
 
-            _playerManager.CurrentMoney -= _playerManager.damagesPerFire * 60;
+            Debug.Log("Buy dmg upgrade");
+            _playerManager.CurrentMoney -= _playerManager.damagesPerFire * 6;
             _playerManager.damagesPerFire = (int)(_playerManager.damagesPerFire * damagesUpgradeMultiplier);
 
             RefreshButtons();
@@ -101,23 +104,24 @@ namespace Managers
 
         public void UpgradePlayerFireRate()
         {
-            if (_playerManager.fireRate * 1000 < _playerManager.CurrentMoney)
+            if (_playerManager.fireRate * 100 > _playerManager.CurrentMoney)
             {
                 return;
             }
 
-            _playerManager.CurrentMoney -= (int)_playerManager.fireRate * 1000;
-            _playerManager.fireRate = (int)(_playerManager.fireRate * fireRateUpgradeMultiplier);
+            Debug.Log("Buy FR upgrade");
+            _playerManager.CurrentMoney -= (int)(_playerManager.fireRate * 100);
+            _playerManager.fireRate = (_playerManager.fireRate * fireRateUpgradeMultiplier);
 
             RefreshButtons();
         }
 
         private void RefreshButtons()
         {
-            int nextHealthPrice = _playerManager.maxHealthPoints * 10;
-            int nextAmmoPrice = _playerManager.maxAmmoNumber * 40;
-            int nextDamagePrice = _playerManager.damagesPerFire * 60;
-            int nextFireRatePrice = (int)(_playerManager.fireRate * 1000);
+            int nextHealthPrice = _playerManager.maxHealthPoints * 2;
+            int nextAmmoPrice = _playerManager.maxAmmoNumber * 4;
+            int nextDamagePrice = _playerManager.damagesPerFire * 6;
+            int nextFireRatePrice = (int)(_playerManager.fireRate * 100);
 
             updatePlayerHPPriceText.text = nextHealthPrice + " $";
             updatePlayerAmmoPriceText.text = nextAmmoPrice + " $";
@@ -131,7 +135,7 @@ namespace Managers
             updatePlayerDamagesBeforeValueText.text = _playerManager.damagesPerFire.ToString();
             updatePlayerDamagesAfterValueText.text = (_playerManager.damagesPerFire * damagesUpgradeMultiplier).ToString(CultureInfo.InvariantCulture);
             updatePlayerFireRateBeforeValueText.text = _playerManager.fireRate.ToString(CultureInfo.InvariantCulture);
-            updatePlayerFireRateAfterValueText.text = (_playerManager.fireRate * fireRateUpgradeMultiplier).ToString(CultureInfo.InvariantCulture);
+            updatePlayerFireRateAfterValueText.text = (_playerManager.fireRate * fireRateUpgradeMultiplier).ToString("0.00",CultureInfo.InvariantCulture);
 
             if (nextHealthPrice > _playerManager.CurrentMoney)
             {
