@@ -149,6 +149,7 @@ MonoBehaviour:
   spawnTime: 2
   spawnPoints:
   - {fileID: 933997770}
+  - {fileID: 2117182626}
 --- !u!114 &14871710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +186,7 @@ MonoBehaviour:
   spawnTime: 3
   spawnPoints:
   - {fileID: 345275349}
+  - {fileID: 933997770}
 --- !u!4 &14871712
 Transform:
   m_ObjectHideFlags: 0
@@ -1191,13 +1193,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4752447393250371399, guid: b28035eaa6c24cd469ae7b05a8b2837c,
-        type: 3}
-      propertyPath: m_Text
-      value: "You have found someone! The first human you've seen for several months
-        ...\r\nA soldier, a woman! She has been here for several weeks. You ask her
-        to come with you.\r\nShe accepts with pleasure!"
-      objectReference: {fileID: 0}
     - target: {fileID: 4752447395148166121, guid: b28035eaa6c24cd469ae7b05a8b2837c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -1207,6 +1202,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 4752447393250371399, guid: b28035eaa6c24cd469ae7b05a8b2837c,
+        type: 3}
+      propertyPath: m_Text
+      value: "You have found someone! The first human you've seen for several months
+        ...\r\nA soldier, a woman! She has been here for several weeks. You ask her
+        to come with you.\r\nShe accepts with pleasure!"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b28035eaa6c24cd469ae7b05a8b2837c, type: 3}
@@ -3377,7 +3379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933997769}
   m_LocalRotation: {x: -0, y: 0.90630776, z: -0, w: -0.42261833}
-  m_LocalPosition: {x: 40.96, y: 0, z: 60.04}
+  m_LocalPosition: {x: 41.69, y: 0, z: 49.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190929898}
@@ -4014,6 +4016,7 @@ Transform:
   - {fileID: 933997770}
   - {fileID: 345275349}
   - {fileID: 1725468539}
+  - {fileID: 2117182626}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4960,7 +4963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725468538}
   m_LocalRotation: {x: -0, y: 0.8660254, z: -0, w: -0.50000006}
-  m_LocalPosition: {x: -25.56, y: 0, z: 66.15}
+  m_LocalPosition: {x: -20.89, y: 0, z: 46.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1190929898}
@@ -5612,6 +5615,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979757893}
   m_CullTransparentMesh: 0
+--- !u!1 &2117182625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2117182626}
+  m_Layer: 0
+  m_Name: SpawnGlade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2117182626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117182625}
+  m_LocalRotation: {x: -0, y: 0.9063078, z: -0, w: 0.42261824}
+  m_LocalPosition: {x: 35.46, y: 0, z: 6.97}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
+  m_Children: []
+  m_Father: {fileID: 1190929898}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5949369357341397732
 PrefabInstance:
   m_ObjectHideFlags: 0
