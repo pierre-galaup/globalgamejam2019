@@ -3,6 +3,7 @@ using Managers;
 using Story;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GuiButtonHandler : MonoBehaviour
@@ -24,6 +25,9 @@ public class GuiButtonHandler : MonoBehaviour
 
     [SerializeField]
     private DeployStoryText _deployStoryText;
+
+    [FormerlySerializedAs("MenuDialogCanvas")] [SerializeField]
+    private Canvas menuDialogCanvas;
 
     private GameManager _gameManager;
 
@@ -74,6 +78,22 @@ public class GuiButtonHandler : MonoBehaviour
         shopButton.interactable = transform;
     }
 
+    public void ShowQuitMenu()
+    {
+        menuDialogCanvas.enabled = true;
+    }
+
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+
+    }
+
+    public void HideMenuDialog()
+    {
+        menuDialogCanvas.enabled = false;
+    }
+
     private void LoadExplorationScene()
     {
         SceneManager.LoadScene("PlayArea");
@@ -83,5 +103,13 @@ public class GuiButtonHandler : MonoBehaviour
     {
         _closeStoryButton = null;
         _deployStoryText = null;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ShowQuitMenu();
+        }
     }
 }
