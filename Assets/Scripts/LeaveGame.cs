@@ -36,6 +36,9 @@ public class LeaveGame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.gameObject.CompareTag("Player"))
+            return;
+
         if (!_isPlayerOut)
             return;
         _isPlayerOut = false;
@@ -45,6 +48,8 @@ public class LeaveGame : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (!other.gameObject.CompareTag("Player"))
+            return;
         _isPlayerOut = true;
     }
 
