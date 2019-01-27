@@ -7,7 +7,6 @@ namespace Enemy
     public class EnemyAttack : MonoBehaviour
     {
         public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
-        public int baseAttackDamage = 10;               // The amount of health taken away per attack.
 
         private int attackDamage;
         private Animator anim;                              // Reference to the animator component.
@@ -24,7 +23,7 @@ namespace Enemy
             playerHealth = player.GetComponent<PlayerHealth>();
             enemyHealth = GetComponent<EnemyHealth>();
             anim = GetComponent<Animator>();
-            attackDamage = (int) (baseAttackDamage * GameManager.Instance.EnemyDamagesMultiplier);
+            attackDamage = Constants.ZombieDamageCalculator(GameManager.Instance.daysPassed);
         }
 
         private void OnTriggerEnter(Collider other)
