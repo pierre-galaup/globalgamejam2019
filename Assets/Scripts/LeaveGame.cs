@@ -20,6 +20,9 @@ public class LeaveGame : MonoBehaviour
     [SerializeField]
     public PlayerHealth playerHealth;
 
+    [SerializeField]
+    private ToolBoxSpawner toolBoxSpawner;
+
     private GameManager _gameManager;
     private Text _bonusText;
     private int _previousZombiesKilled;
@@ -33,7 +36,7 @@ public class LeaveGame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Player"))
+        if (!other.gameObject.CompareTag("Player") || !toolBoxSpawner.isFound)
         {
             return;
         }
