@@ -187,7 +187,7 @@ PrefabInstance:
     - target: {fileID: 5949369356285753213, guid: d97a596deee809a498ae3044ded7e554,
         type: 3}
       propertyPath: fireRate
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5949369356285753213, guid: d97a596deee809a498ae3044ded7e554,
         type: 3}
@@ -197,12 +197,12 @@ PrefabInstance:
     - target: {fileID: 5949369356285753213, guid: d97a596deee809a498ae3044ded7e554,
         type: 3}
       propertyPath: maxAmmoNumber
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5949369356285753213, guid: d97a596deee809a498ae3044ded7e554,
         type: 3}
       propertyPath: maxHealthPoints
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97a596deee809a498ae3044ded7e554, type: 3}
