@@ -4747,6 +4747,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 933454083}
+    - target: {fileID: 97063974, guid: 5e18c2c1968b9c24592b2fd1076b730b, type: 3}
+      propertyPath: toolBoxSpawner
+      value: 
+      objectReference: {fileID: 1258741792}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e18c2c1968b9c24592b2fd1076b730b, type: 3}
 --- !u!1 &1591794898
