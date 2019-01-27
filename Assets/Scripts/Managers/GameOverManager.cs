@@ -35,7 +35,7 @@ namespace Managers
 
         public IEnumerator LoadCamp()
         {
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSecondsRealtime(4);
             ++GameManager.Instance.daysPassed;
             GameManager.Instance.SaveGame();
             SceneManager.LoadScene("Camp");
