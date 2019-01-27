@@ -19,15 +19,12 @@ namespace Managers
             }
         }
 
-        public int maxHealthPoints = 100;
-
-        public int maxAmmoNumber = 60;
-
-        public int damagesPerFire = 30;
-
-        public float fireRate = 2;
+        public int maxHealthPoints = Constants.InitialPlayerHealthPoint;
+        public int maxAmmoNumber = Constants.InitialAmmoNumber;
+        public int damagesPerFire = Constants.InitialDamagesPerFire;
+        public float fireRate = Constants.InitialFireRate;
 
         [SerializeField]
-        private int currentMoney = 250;
+        private int currentMoney = Constants.InitialMoney;
     }
 }

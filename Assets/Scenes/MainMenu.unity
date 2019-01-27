@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -178,6 +178,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949369356285753213, guid: d97a596deee809a498ae3044ded7e554,
+        type: 3}
+      propertyPath: currentMoney
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949369356285753213, guid: d97a596deee809a498ae3044ded7e554,
+        type: 3}
+      propertyPath: fireRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949369356285753213, guid: d97a596deee809a498ae3044ded7e554,
+        type: 3}
+      propertyPath: damagesPerFire
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949369356285753213, guid: d97a596deee809a498ae3044ded7e554,
+        type: 3}
+      propertyPath: maxAmmoNumber
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949369356285753213, guid: d97a596deee809a498ae3044ded7e554,
+        type: 3}
+      propertyPath: maxHealthPoints
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97a596deee809a498ae3044ded7e554, type: 3}

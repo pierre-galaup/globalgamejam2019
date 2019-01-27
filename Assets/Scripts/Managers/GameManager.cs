@@ -20,9 +20,6 @@ namespace Managers
         public bool soldierSaved = false;
         public bool soldierSavedText = false;
 
-        public float EnemyHealthMultiplier => 1f + daysPassed * 0.33f;
-        public float EnemyDamagesMultiplier => 1f + daysPassed * 0.33f;
-
         private string _savePath;
 
         public void NewGame()
@@ -30,13 +27,13 @@ namespace Managers
             Debug.Log("New game requested");
 
             daysPassed = 0;
+            PlayerManager.CurrentMoney = Constants.InitialMoney;
             soldierSaved = false;
             soldierSavedText = false;
-            PlayerManager.CurrentMoney = 500;
-            PlayerManager.maxHealthPoints = 200;
-            PlayerManager.maxAmmoNumber = 60;
-            PlayerManager.damagesPerFire = 30;
-            PlayerManager.fireRate = 2;
+            PlayerManager.maxHealthPoints = Constants.InitialPlayerHealthPoint;
+            PlayerManager.maxAmmoNumber = Constants.InitialAmmoNumber;
+            PlayerManager.damagesPerFire = Constants.InitialDamagesPerFire;
+            PlayerManager.fireRate = Constants.InitialFireRate;
 
             SaveGame();
             LoadScene();
