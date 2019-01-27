@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Save;
+using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using Newtonsoft.Json;
-using Save;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +17,7 @@ namespace Managers
         public StatsManager StatsManager { get; private set; }
 
         public int daysPassed = 0;
+        public bool soldierSaved = false;
 
         public float EnemyHealthMultiplier => 1f + daysPassed * 0.33f;
         public float EnemyDamagesMultiplier => 1f + daysPassed * 0.33f;
@@ -28,6 +29,7 @@ namespace Managers
             Debug.Log("New game requested");
 
             daysPassed = 0;
+            soldierSaved = false;
             PlayerManager.CurrentMoney = 500;
             PlayerManager.maxHealthPoints = 200;
             PlayerManager.maxAmmoNumber = 60;
@@ -40,7 +42,7 @@ namespace Managers
 
         public void SaveGame()
         {
-            var saveObject = new SaveObject
+            SaveObject saveObject = new SaveObject
             {
                 daysPassed = daysPassed,
                 currentMoney = PlayerManager.CurrentMoney,
@@ -53,11 +55,14 @@ namespace Managers
                 deaths = StatsManager.deaths,
                 damagesTaken = StatsManager.damagesTaken,
                 totalAmmoFired = StatsManager.totalAmmoFired,
-                moneyEarned = StatsManager.moneyEarned
+                moneyEarned = StatsManager.moneyEarned,
+                soldierSaved = soldierSaved
             };
 
             if (!Directory.Exists(Application.persistentDataPath))
+            {
                 Directory.CreateDirectory(Application.persistentDataPath);
+            }
 
             IFormatter formatter = new BinaryFormatter();
             using (Stream stream = new FileStream(_savePath, FileMode.Create, FileAccess.Write, FileShare.None))
@@ -66,7 +71,6 @@ namespace Managers
                 Debug.Log($"Saved game to {_savePath}");
                 Debug.Log($"Data saved:{Environment.NewLine}{JsonConvert.SerializeObject(saveObject, Formatting.Indented)}");
             }
-            
         }
 
         public void LoadGame()
@@ -76,7 +80,7 @@ namespace Managers
             Debug.Log($"Loading save from {_savePath}");
 
             IFormatter formatter = new BinaryFormatter();
-            using (var stream = new FileStream(_savePath, FileMode.Open, FileAccess.Read, FileShare.None))
+            using (FileStream stream = new FileStream(_savePath, FileMode.Open, FileAccess.Read, FileShare.None))
             {
                 saveObject = formatter.Deserialize(stream) as SaveObject;
             }
@@ -94,6 +98,7 @@ namespace Managers
             PlayerManager.maxAmmoNumber = saveObject.maxAmmo;
             PlayerManager.damagesPerFire = saveObject.dmgPerFire;
             PlayerManager.fireRate = saveObject.fireRate;
+            soldierSaved = saveObject.soldierSaved;
 
             StatsManager.damagesDealt = saveObject.damagesDealt;
             StatsManager.damagesTaken = saveObject.damagesTaken;

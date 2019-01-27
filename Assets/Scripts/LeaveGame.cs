@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class LeaveGame : MonoBehaviour
 {
-
     [SerializeField]
-    private GameOverManager gameOverManager;
+    private readonly GameOverManager gameOverManager;
 
     [SerializeField]
     private PauseManager pauseManager;
@@ -35,7 +34,14 @@ public class LeaveGame : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.CompareTag("Player"))
+        {
             return;
+        }
+
+        if (dialogCanvas.enabled)
+        {
+            return;
+        }
 
         pauseManager.Pause();
         dialogCanvas.enabled = true;
@@ -44,11 +50,12 @@ public class LeaveGame : MonoBehaviour
     public void OnDialogYes()
     {
         pauseManager.Pause();
+        GetComponent<SphereCollider>().enabled = false;
         dialogCanvas.enabled = false;
         bonusPanel.SetActive(true);
 
-        var zombiesKilled = _gameManager.StatsManager.totalZombiesKilled - _previousZombiesKilled;
-        var bonusValue = ((1 + _gameManager.daysPassed) * zombiesKilled) * 5;
+        int zombiesKilled = _gameManager.StatsManager.totalZombiesKilled - _previousZombiesKilled;
+        int bonusValue = ((1 + _gameManager.daysPassed) * zombiesKilled) * 5;
 
         _gameManager.PlayerManager.CurrentMoney += bonusValue;
 
