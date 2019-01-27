@@ -2149,7 +2149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &511930196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2196,7 +2196,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511930195}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -4246,7 +4246,7 @@ PrefabInstance:
     - target: {fileID: 5949369356285753202, guid: d97a596deee809a498ae3044ded7e554,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5949369356285753212, guid: d97a596deee809a498ae3044ded7e554,
         type: 3}
@@ -4778,6 +4778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _storyCanvas: {fileID: 511930198}
+  _text: {fileID: 2141862231}
 --- !u!1001 &2949551915503877757
 PrefabInstance:
   m_ObjectHideFlags: 0
