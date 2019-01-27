@@ -62,12 +62,12 @@ namespace Managers
 
         public void UpgradePlayerHp()
         {
-            if (_playerManager.maxHealthPoints * 100 < _playerManager.CurrentMoney)
+            if (_playerManager.maxHealthPoints * 10 < _playerManager.CurrentMoney)
             {
                 return;
             }
 
-            _playerManager.CurrentMoney -= _playerManager.maxHealthPoints * 100;
+            _playerManager.CurrentMoney -= _playerManager.maxHealthPoints * 10;
             _playerManager.maxHealthPoints = (int)(_playerManager.maxHealthPoints * hpUpgradeMultiplier);
 
             RefreshButtons();
@@ -75,12 +75,12 @@ namespace Managers
 
         public void UpgradePlayerAmmo()
         {
-            if (_playerManager.maxAmmoNumber * 100 < _playerManager.CurrentMoney)
+            if (_playerManager.maxAmmoNumber * 40 < _playerManager.CurrentMoney)
             {
                 return;
             }
 
-            _playerManager.CurrentMoney -= _playerManager.maxAmmoNumber * 100;
+            _playerManager.CurrentMoney -= _playerManager.maxAmmoNumber * 40;
             _playerManager.maxAmmoNumber = (int)(_playerManager.maxAmmoNumber * ammoUpgradeMultiplier);
 
             RefreshButtons();
@@ -88,12 +88,12 @@ namespace Managers
 
         public void UpgradePlayerDamages()
         {
-            if (_playerManager.damagesPerFire * 100 < _playerManager.CurrentMoney)
+            if (_playerManager.damagesPerFire * 60 < _playerManager.CurrentMoney)
             {
                 return;
             }
 
-            _playerManager.CurrentMoney -= _playerManager.damagesPerFire * 100;
+            _playerManager.CurrentMoney -= _playerManager.damagesPerFire * 60;
             _playerManager.damagesPerFire = (int)(_playerManager.damagesPerFire * damagesUpgradeMultiplier);
 
             RefreshButtons();
@@ -114,9 +114,9 @@ namespace Managers
 
         private void RefreshButtons()
         {
-            int nextHealthPrice = _playerManager.maxHealthPoints * 100;
-            int nextAmmoPrice = _playerManager.maxAmmoNumber * 100;
-            int nextDamagePrice = _playerManager.damagesPerFire * 100;
+            int nextHealthPrice = _playerManager.maxHealthPoints * 10;
+            int nextAmmoPrice = _playerManager.maxAmmoNumber * 40;
+            int nextDamagePrice = _playerManager.damagesPerFire * 60;
             int nextFireRatePrice = (int)(_playerManager.fireRate * 1000);
 
             updatePlayerHPPriceText.text = nextHealthPrice + " $";

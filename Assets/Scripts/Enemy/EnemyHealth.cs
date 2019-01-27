@@ -10,7 +10,7 @@ namespace Enemy
         public float sinkSpeed = 2.5f;              // The speed at which the enemy sinks through the floor when dead.
         public int scoreValue = 10;                 // The amount added to the player's score when the enemy dies.
         public AudioClip deathClip;                 // The sound to play when the enemy dies.
-        public int moneyValue = 10;
+        public int baseMoneyValue = 10;
 
         private Animator anim;                              // Reference to the animator.
         private AudioSource enemyAudio;                     // Reference to the audio source.
@@ -20,6 +20,7 @@ namespace Enemy
         private bool isSinking;                             // Whether the enemy has started sinking through the floor.
         private StatsManager _statsManager;
         private PlayerManager _playerManager;
+        private int _moneyValue;
 
         private void Awake()
         {
@@ -34,6 +35,7 @@ namespace Enemy
 
             // Setting the current health when the enemy first spawns.
             currentHealth = (int)(startingHealth * GameManager.Instance.EnemyHealthMultiplier);
+            _moneyValue = 10 * (1 + GameManager.Instance.daysPassed) / 2;
         }
 
         private void Update()
@@ -74,9 +76,9 @@ namespace Enemy
             {
                 // ... the enemy is dead.
                 Death();
-                _playerManager.CurrentMoney += moneyValue;
+                _playerManager.CurrentMoney += _moneyValue;
                 ++_statsManager.totalZombiesKilled;
-                _statsManager.moneyEarned += moneyValue;
+                _statsManager.moneyEarned += _moneyValue;
             }
         }
 

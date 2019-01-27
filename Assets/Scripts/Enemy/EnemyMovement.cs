@@ -1,5 +1,6 @@
 ﻿using Player;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy
 {
@@ -10,6 +11,9 @@ namespace Enemy
         private EnemyHealth enemyHealth;        // Reference to this enemy's health.
         private UnityEngine.AI.NavMeshAgent nav;               // Reference to the nav mesh agent.
 
+        [SerializeField]
+        private float speedMultiplier;
+
         private void Awake()
         {
             // Set up the references.
@@ -17,6 +21,12 @@ namespace Enemy
             playerHealth = player.GetComponent<PlayerHealth>();
             enemyHealth = GetComponent<EnemyHealth>();
             nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+            var animator = GetComponent<Animator>();
+            animator.SetFloat("SpeedMultiplier", speedMultiplier);
+
+            var navMeshAgent = GetComponent<NavMeshAgent>();
+            navMeshAgent.speed = navMeshAgent.speed * speedMultiplier;
         }
 
         private void Update()

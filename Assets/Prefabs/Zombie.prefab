@@ -175,7 +175,7 @@ MonoBehaviour:
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 8300000, guid: 62366b8d2c37a49dca550841c741317f, type: 3}
-  moneyValue: 10
+  baseMoneyValue: 10
 --- !u!114 &1387014198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea9a6ed18654d14db02bf0076cfe488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedMultiplier: 4
 --- !u!82 &1387014197
 AudioSource:
   m_ObjectHideFlags: 0
