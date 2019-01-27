@@ -35,6 +35,7 @@ namespace Story
             else if (GameManager.Instance.soldierSaved && !GameManager.Instance.soldierSavedText)
             {
                 GameManager.Instance.soldierSavedText = true;
+                GameManager.Instance.SaveGame();
                 DisplayText(_storyline[2]);
             }
         }
