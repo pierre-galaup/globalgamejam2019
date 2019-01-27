@@ -12,7 +12,11 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        if (arsenal.Length > 1)
+        if (arsenal.Length == 3)
+        {
+            SetArsenal(arsenal[2].name);
+        }
+        else if (arsenal.Length == 2)
         {
             SetArsenal(arsenal[1].name);
         }
@@ -38,14 +42,28 @@ public class PlayerController : MonoBehaviour
                 {
                     GameObject newRightGun = Instantiate(hand.rightGun, rightGunBone, true);
                     newRightGun.transform.localPosition = Vector3.zero;
-                    newRightGun.transform.localRotation = Quaternion.Euler(65.387f, 89, 90);
+                    if (arsenal.Length == 3)
+                    {
+                        newRightGun.transform.localRotation = Quaternion.Euler(90, 0, 0);
+                    }
+                    else if (arsenal.Length == 2)
+                    {
+                        newRightGun.transform.localRotation = Quaternion.Euler(65.387f, 89, 90);
+                    }
                     newRightGun.transform.localScale = new Vector3(0.3937008f, 0.3937008f, 0.3937008f);
                 }
                 if (hand.leftGun != null)
                 {
                     GameObject newLeftGun = Instantiate(hand.leftGun, leftGunBone, true);
                     newLeftGun.transform.localPosition = Vector3.zero;
-                    newLeftGun.transform.localRotation = Quaternion.Euler(65.387f, 89, 90);
+                    if (arsenal.Length == 3)
+                    {
+                        newLeftGun.transform.localRotation = Quaternion.Euler(90, 0, 0);
+                    }
+                    else if (arsenal.Length == 2)
+                    {
+                        newLeftGun.transform.localRotation = Quaternion.Euler(65.387f, 89, 90);
+                    }
                     newLeftGun.transform.localScale = new Vector3(0.3937008f, 0.3937008f, 0.3937008f);
                 }
                 //animator.runtimeAnimatorController = hand.controller;
