@@ -21,8 +21,8 @@ namespace Camp
             _player.localEulerAngles = new Vector3(0, 0, 0);
             _player.gameObject.GetComponent<Animator>().runtimeAnimatorController = null;
 
-            _fenceDoorTransform.DOLocalMoveX(-12.67f, 2).OnComplete(() => // DEFAULT X = -9,97126
-                _carTransform.DOLocalMoveZ(-11, 3).SetEase(Ease.InCubic).OnComplete(() => // DEFAULT Z = 0,58
+            _fenceDoorTransform.DOLocalMoveX(-12.67f, 0.5f).OnComplete(() => // DEFAULT X = -9,97126
+                _carTransform.DOLocalMoveZ(-11, 1.5f).SetEase(Ease.InCubic).OnComplete(() => // DEFAULT Z = 0,58
                     animationCompleted?.Invoke())
                 );
         }
