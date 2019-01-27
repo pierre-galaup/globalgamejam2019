@@ -18,6 +18,7 @@ namespace Managers
 
         public int daysPassed = 0;
         public bool soldierSaved = false;
+        public bool soldierSavedText = false;
 
         public float EnemyHealthMultiplier => 1f + daysPassed * 0.33f;
         public float EnemyDamagesMultiplier => 1f + daysPassed * 0.33f;
@@ -30,6 +31,7 @@ namespace Managers
 
             daysPassed = 0;
             soldierSaved = false;
+            soldierSavedText = false;
             PlayerManager.CurrentMoney = 500;
             PlayerManager.maxHealthPoints = 200;
             PlayerManager.maxAmmoNumber = 60;
@@ -56,7 +58,8 @@ namespace Managers
                 damagesTaken = StatsManager.damagesTaken,
                 totalAmmoFired = StatsManager.totalAmmoFired,
                 moneyEarned = StatsManager.moneyEarned,
-                soldierSaved = soldierSaved
+                soldierSaved = soldierSaved,
+                soldierSavedText = soldierSavedText
             };
 
             if (!Directory.Exists(Application.persistentDataPath))
@@ -99,6 +102,7 @@ namespace Managers
             PlayerManager.damagesPerFire = saveObject.dmgPerFire;
             PlayerManager.fireRate = saveObject.fireRate;
             soldierSaved = saveObject.soldierSaved;
+            soldierSavedText = saveObject.soldierSavedText;
 
             StatsManager.damagesDealt = saveObject.damagesDealt;
             StatsManager.damagesTaken = saveObject.damagesTaken;

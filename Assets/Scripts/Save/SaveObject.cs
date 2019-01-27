@@ -12,6 +12,7 @@ namespace Save
         public int dmgPerFire;
         public float fireRate;
         public bool soldierSaved;
+        public bool soldierSavedText;
 
         // stats
         public int totalZombiesKilled;
