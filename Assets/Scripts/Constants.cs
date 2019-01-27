@@ -3,7 +3,7 @@
     // Initial player values
 
     public const int InitialMoney = 250;
-    public const int InitialPlayerHealthPoint = 60;
+    public const int InitialPlayerHealthPoint = 100;
     public const int InitialAmmoNumber = 30;
     public const int InitialDamagesPerFire = 30;
     public const float InitialFireRate = 3f;
