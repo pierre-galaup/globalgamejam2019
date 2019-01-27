@@ -1191,6 +1191,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4752447393250371399, guid: b28035eaa6c24cd469ae7b05a8b2837c,
+        type: 3}
+      propertyPath: m_Text
+      value: "You have found someone! The first human you've seen for several months
+        ...\r\nA soldier, a woman! She has been here for several weeks. You ask her
+        to come with you.\r\nShe accepts with pleasure!"
+      objectReference: {fileID: 0}
     - target: {fileID: 4752447395148166121, guid: b28035eaa6c24cd469ae7b05a8b2837c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
