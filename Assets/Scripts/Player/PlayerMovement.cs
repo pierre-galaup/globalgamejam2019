@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 namespace Player
@@ -108,6 +109,31 @@ namespace Player
 
             // Tell the animator whether or not the player is walking.
             anim.SetBool("IsWalking", walking);
+        }
+
+        private bool _adrealineUsed = false;
+
+        private void Update()
+        {
+            if (!_adrealineUsed && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)))
+            {
+                _adrealineUsed = true;
+                TakeAdrealine();
+            }
+        }
+
+        private void TakeAdrealine()
+        {
+            speed *= 2;
+            anim.SetFloat("SpeedMultiplier", 2);
+            StartCoroutine(StopAdrealine());
+        }
+
+        private IEnumerator StopAdrealine()
+        {
+            yield return new WaitForSeconds(1.5f);
+            speed /= 2;
+            anim.SetFloat("SpeedMultiplier", 1);
         }
     }
 }
